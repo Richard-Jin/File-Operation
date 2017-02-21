@@ -4,9 +4,9 @@
 
 import logging,time,shutil,os,hashlib
 
-f1=r'X:\sect1\2 试验数据\RAC\17S\NS'
-f2=r'D:\E Virtual\NS Local\~试验数据备份'
-log_f_p=r'D:\E Virtual\NS Local\~试验数据备份\fileCompare.log'
+f1=r'source path'
+f2=r'destination path'
+log_f_p=r'log path   *.log'
 exe_time=time.strftime('%Y%m%d%H%M%S')
 
 logging.basicConfig(filename=log_f_p,level=logging.INFO,format='%(asctime)s %(message)s')
@@ -48,24 +48,24 @@ for key in src_md5_dict.keys():
         exist_f_p=src_md5_dict[key]
         # exist_f_p=exist_f_p.encode('gbk')
         # logging.info(exist_f_p)
-        # exist_f_p=exist_f_p[24:]    # NS\COMP\KNB065FYJMC(铝线化) KNB092FFDMC(VE) 压缩机一次设试手配需求.xlsx
+        # exist_f_p=exist_f_p[24:]    
         # print('已备份:',exist_f_p)
     else:
         unexist_f_p=src_md5_dict[key]
-        src=unexist_f_p      #X:\sect1\2 试验数据\RAC\17S\NS\test.txt
-        relative_p=unexist_f_p[27:]    #VE项目\STOP_V 调查\stop_v図面\SU50V237.tif
+        src=unexist_f_p      
+        relative_p=unexist_f_p[27:]    
         i=relative_p.rfind('\\')
 
         #判断是否目标文件夹根目录
         if not i==-1:
-            relative_dir = relative_p[:relative_p.rfind('\\')]  # VE项目\STOP_V 调查\stop_v図面
+            relative_dir = relative_p[:relative_p.rfind('\\')]  
         else:
             relative_dir=''
 
         logging.debug('relative_dir:   '+relative_dir)
-        dst_dir=f2+'\\'+relative_dir        #D:\E Virtual\NS Local\~试验数据备份\VE项目\STOP_V 调查\stop_v図面
+        dst_dir=f2+'\\'+relative_dir        
         logging.debug('innitial:'+dst_dir)
-        dst=f2+'\\'+relative_p     #D:\E Virtual\NS Local\~试验数据备份\VE项目\STOP_V 调查\stop_v図面\SU50V237.tif
+        dst=f2+'\\'+relative_p     
 
         if os.path.exists(dst):
             dst = dst[:dst.rfind('\\') + 1] + exe_time + '__' + dst[dst.rfind('\\') + 1:]
