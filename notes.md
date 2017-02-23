@@ -14,6 +14,7 @@ os.getcwd()　　　#get current work direction
 　　*：任意个任意字符；<br>
 　　+：一个或以上个任意字符；<br>
 　　?：0个或1个任意字符<br>
+　　\d+?：加个问号→非贪婪匹配；
 　　{n}：n个字符<br>
 　　{n,m}：n-m个字符<br>
 　　[]：一个范围。
@@ -23,4 +24,9 @@ os.getcwd()　　　#get current work direction
 ```python
 m.group(0)  #原始字符串
 m.group(1)  #第一个字符串
+```
+3.正则表达式编译后直接匹配
+```python
+re_telephone=re.compile(r'^(\d{3})\-(\d{3-8})$')
+re_telephone.match(string)
 ```
