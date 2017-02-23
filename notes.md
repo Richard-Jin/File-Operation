@@ -17,7 +17,7 @@ os.getcwd()　　　#get current work direction
 　　\d+?：加个问号→非贪婪匹配；
 　　{n}：n个字符<br>
 　　{n,m}：n-m个字符<br>
-　　[]：一个范围。
+　　[]：一个范围。<br>
 <br>
 2.正则表达式分组提取<br>
 　　在表达式上加()，第一个括号为第一组。<br>
