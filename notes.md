@@ -31,6 +31,6 @@ re_telephone=re.compile(r'^(\d{3})\-(\d{3-8})$')
 re_telephone.match(string)
 ```
 [伯乐在线-正则表达式](http://www.runoob.com/python/python-reg-expressions.html)
-<br>
+<br><br>
 4.字符串find
 　找到字符返回找到位置索引，未找到返回-1。
